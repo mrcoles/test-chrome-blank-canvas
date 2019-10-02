@@ -42,6 +42,9 @@ const main = async () => {
           canvas.dataset.color
         );
         ctx.drawImage(sampleImg, 0, y - canvasOffsetY);
+
+        // EXTRA 5MSEC DELAY - THIS SEEMS TO PREVENT THE BUG?!?!
+        await sleep(5);
       }
 
       canvasOffsetY += canvas.height;
@@ -64,6 +67,11 @@ const loadImage = src =>
     img.onload = () => resolve(img);
     img.onerror = err => reject(err);
     img.src = src;
+  });
+
+const sleep = ms =>
+  new Promise(resolve => {
+    window.setTimeout(() => resolve(), ms);
   });
 
 let logCounter = 0;

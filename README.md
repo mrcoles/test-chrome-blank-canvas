@@ -15,3 +15,7 @@ I do not know if this matter, but in Mac OS X 10.14.6 and Canary 79.0.3928.3 I s
 ```
 
 If I run Canary with the `--disable-gpu` flag then this page always loads fine and I don't see the error message either, e.g., via `/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-gpu`.
+
+## Update
+
+If I add a delay after each drawImage call, then it appears this bug goes away? Is there some kind of race condition?
